@@ -64,7 +64,7 @@ app.get("/", (req, res) => {
   res.send("");
 });
 
-const port = process.env.PORT || 4200;
-app.listen(port, () =>
+// const port = process.env.PORT || 4200;
+app.listen(process.env.PORT || 4200, () =>
   console.log(`Listning on port ${port}...`.blue.underline.bold)
 );
