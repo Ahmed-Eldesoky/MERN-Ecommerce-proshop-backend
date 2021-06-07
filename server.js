@@ -24,6 +24,10 @@ app.use(
   }),
 )
 
+app.get('/', (req, res) => {
+  res.send('API is running....')
+})
+
 app.use("/api/orders", order);
 app.use("/api/products", products);
 app.use("/api/user", user);
@@ -39,18 +43,16 @@ app.get("/api/config/paypal", (req, res) =>
 
 app.use('/uploads', express.static(path.join(path.resolve(), '/uploads')))
 
-if (process.env.NODE_ENV == 'production') {
-  console.log('ok...');
-  app.use(express.static(path.join(path.resolve(), '../frontend/build')))
+// if (process.env.NODE_ENV == 'production') {
+//   console.log('ok...');
+//   app.use(express.static(path.join(path.resolve(), '../frontend/build')))
 
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(path.resolve(), 'frontend', 'build', 'index.html'))
-  )
-} else {
-  app.get('/', (req, res) => {
-    res.send('API is running....')
-  })
-}
+//   app.get('*', (req, res) =>
+//     res.sendFile(path.resolve(path.resolve(), 'frontend', 'build', 'index.html'))
+//   )
+// } else {
+  
+// }
 
 app.use(notFound);
 app.use(errorHandler);
