@@ -65,6 +65,8 @@ app.get("/", (req, res) => {
 });
 
 // const port = process.env.PORT || 4200;
-app.listen(process.env.PORT || 4200, () =>
-  console.log(`Listning on port ${port}...`.blue.underline.bold)
-);
+// app.listen(process.env.PORT || 4200, () =>
+//   console.log(`Listning on port ${port}...`.blue.underline.bold)
+// );
+
+app.listen(process.env.PORT, '0.0.0.0');
